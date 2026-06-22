@@ -1,7 +1,12 @@
 from stats import get_num_words, take_text, chars_dict_to_sorted_list
+import sys
 
 def main() -> None:
-    ruta = "./books/frankenstein.txt" 
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    ruta = sys.argv[1]
+    #ruta = "./books/frankenstein.txt" 
     texto = get_book_text(ruta)
     words = get_num_words(texto)
     num_characters = take_text(texto)
